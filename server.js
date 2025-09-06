@@ -7,16 +7,16 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Connecter à MongoDB
+// Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/billetterie', { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connecté à MongoDB'))
-  .catch(err => console.error('Erreur de connexion à MongoDB:', err));
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Connection error to MongoDB:', err));
 
-// Routes de base
+// Basic routes
 app.get('/', (req, res) => {
-  res.send('Bienvenue dans l API de Gestion de Billetterie!');
+  res.send('Welcome to the Ticket Management API!');
 });
 
 app.listen(port, () => {
-  console.log(`Serveur en cours d'exécution sur http://localhost:${port}`);
+  console.log(`Server is running on http://localhost:${port}`);
 });
