@@ -1,7 +1,7 @@
-
 const express = require('express');
 const eventRoutes = require('./routes/eventRoutes');
 const ticketRoutes = require('./routes/ticketRoutes');
+const cors = require('cors');
 
 const app = express();
 
@@ -11,6 +11,7 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(cors());
 app.use(express.json());
 app.use('/api/events', eventRoutes);
 app.use('/api/tickets', ticketRoutes);
